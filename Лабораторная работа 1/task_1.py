@@ -1,9 +1,17 @@
-numbers = [2, -93, -2, 8, None, -44, -1, -85, -14, 90, -22, -90, -100, -8, 38, -92, -45, 67, 53, 25]
+salary = 5000  # Ежемесячная зарплата
+spend = 6000  # Траты за первый месяц
+months = 10  # Количество месяцев, которое планируется протянуть без долгов
+increase = 0.03  # Ежемесячный рост цен
 
-# TODO заменить значение пропущенного элемента средним арифметическим
-numbers[4] = 0
-sum_ = sum(numbers)
-kol = len(numbers)
-sr = sum_/kol
-numbers[4] = sr
-print("Измененный список:", numbers)
+money_capital = 0
+
+for _ in range(months):
+
+    delta = spend - salary
+
+    spend *= 1 + increase
+
+    money_capital += delta
+
+print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", round(money_capital,2))
+

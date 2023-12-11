@@ -1,8 +1,17 @@
-# TODO Найдите количество книг, которое можно разместить на дискете
-ves_simvola = 4
-kol_simv_v_1_stroke = 25
-kol_strok_na_1_str = 50
-kol_str_v_1_knige = 100
-V_disketi = 1.44*1024*1024
-kol_knig = round(V_disketi / (ves_simvola * kol_simv_v_1_stroke * kol_strok_na_1_str * kol_str_v_1_knige))
-print("Количество книг, помещающихся на дискету:", kol_knig)
+salary = 5000  # Ежемесячная зарплата
+spend = 6000  # Траты за первый месяц
+months = 10  # Количество месяцев, которое планируется протянуть без долгов
+increase = 0.03  # Ежемесячный рост цен
+
+money_capital = 0
+
+for _ in range(months):
+
+    delta = spend - salary
+
+    spend *= 1 + increase
+
+    money_capital += delta
+
+print(f"Подушка безопасности, чтобы протянуть {months} месяцев без долгов:", round(money_capital,2))
+
